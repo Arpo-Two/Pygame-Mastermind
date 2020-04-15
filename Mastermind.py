@@ -110,20 +110,25 @@ def draw_evaluation():
 
 
 def evaluate_position(given, right):
+
     result = []
     adjusted = []
     provisory = given.copy()
     for a in right:
         adjusted.append(sequence.index(a[0]))
-    for ball in enumerate(given):
-        if ball[1] in adjusted:
-            if provisory[ball[0]] == adjusted[ball[0]]:
-                result.append(1)
-                provisory[ball[0]] = 8
-                adjusted[ball[0]] = 9
-    for ball in enumerate(given):
-        if ball[1] in adjusted:
+
+    for ball in range(len(provisory)):
+        if provisory[ball] == adjusted[ball]:
+            result.append(1)
+            provisory[ball] = 8
+            adjusted[ball] = 9
+
+    for ball in range(len(provisory)):
+        if provisory[ball] in adjusted:
             result.append(0)
+            adjusted[adjusted.index(provisory[ball])] = 9
+            provisory[ball] = 8
+
     return result
 
 
