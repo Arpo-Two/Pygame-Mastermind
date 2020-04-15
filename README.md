@@ -1,6 +1,6 @@
 # Pygame-Mastermind
 Classic code breaker game in pygame
-Rules:
+Rules:\n
 The aim is to discover the hiden code
 A black circle means a correct color in the correct place
 A white circle means a correct color in the wrong place
